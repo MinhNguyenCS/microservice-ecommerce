@@ -1,0 +1,36 @@
+server:
+  port: 9193
+  servlet:
+    context-path: /product-service/api
+
+spring:
+  web:
+    resource:
+      static-location: classpath:/static/
+
+  datasource:
+    url: jdbc:mysql://localhost:3333/ecommercestore
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-circular-references: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect
+    repositories:
+      enabled: true
+
+
+token:
+  key: fSZcTeAPU7nPu0SmOcKaQMpc4G+5Pb6hRrDDVRnT5IA=
+
+redis:
+  host: localhost
+  port: 6378

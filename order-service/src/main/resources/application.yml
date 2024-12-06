@@ -7,6 +7,8 @@ spring:
   web:
     resource:
       static-location: classpath:/static/
+  application:
+    name: order-service
 
   datasource:
     url: jdbc:mysql://localhost:3333/ecommercestore
@@ -33,3 +35,10 @@ token:
 redis:
   host: localhost
   port: 6378
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka
+  instance:
+    prefer-ip-address: true

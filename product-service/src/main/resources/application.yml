@@ -4,6 +4,8 @@ server:
     context-path: /product-service/api
 
 spring:
+  application:
+    name: product-service
   web:
     resource:
       static-location: classpath:/static/
@@ -34,3 +36,5 @@ token:
 redis:
   host: localhost
   port: 6378
+
+

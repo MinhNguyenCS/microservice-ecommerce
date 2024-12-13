@@ -5,10 +5,12 @@ import rnd4impact.favourite_service.dto.FavouriteDTO;
 import rnd4impact.favourite_service.entity.FavouriteEntity;
 import rnd4impact.favourite_service.repository.FavouriteRepository;
 import rnd4impact.favourite_service.service.imp.FavouriteServiceImp;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class FavouriteService implements FavouriteServiceImp {
 
     @Autowired
@@ -16,25 +18,27 @@ public class FavouriteService implements FavouriteServiceImp {
 
     @Override
     public List<FavouriteDTO> getAllFavourites() {
-       List<FavouriteDTO> dtoList = new ArrayList<>();
-        List<FavouriteEntity> list = favouriteRepository.findAll();
-        for (FavouriteEntity item: list) {
+        List<FavouriteDTO> dtoList = new ArrayList<>();
+        List<FavouriteEntity> entityList = favouriteRepository.findAll();
+
+        for (FavouriteEntity item : entityList) {
             FavouriteDTO favouriteDTO = new FavouriteDTO();
-            favouriteDTO.setUserId(item.getUserId());
-            favouriteDTO.setProductId(item.getProductId());
+            favouriteDTO.setUserId(item.getId().getUserId());
+            favouriteDTO.setProductId(item.getId().getProductId());
             dtoList.add(favouriteDTO);
         }
+
         return dtoList;
     }
 
     @Override
     public List<FavouriteDTO> getFavouriteByUserId(int id) {
         List<FavouriteDTO> dtoList = new ArrayList<>();
-        List<FavouriteEntity> list = favouriteRepository.findLikesByUserId(id);
+        List<FavouriteEntity> list = favouriteRepository.findByIdUserId(id);
         for (FavouriteEntity item: list) {
             FavouriteDTO favouriteDTO = new FavouriteDTO();
-            favouriteDTO.setUserId(item.getUserId());
-            favouriteDTO.setProductId(item.getProductId());
+            favouriteDTO.setUserId(item.getId().getUserId());
+            favouriteDTO.setProductId(item.getId().getProductId());
             dtoList.add(favouriteDTO);
         }
         return dtoList;
@@ -43,11 +47,11 @@ public class FavouriteService implements FavouriteServiceImp {
     @Override
     public List<FavouriteDTO> getFavouriteByProductId(int id) {
         List<FavouriteDTO> dtoList = new ArrayList<>();
-        List<FavouriteEntity> list = favouriteRepository.findLikesByProductId(id);
+        List<FavouriteEntity> list = favouriteRepository.findByIdProductId(id);
         for (FavouriteEntity item: list) {
             FavouriteDTO favouriteDTO = new FavouriteDTO();
-            favouriteDTO.setUserId(item.getUserId());
-            favouriteDTO.setProductId(item.getProductId());
+            favouriteDTO.setUserId(item.getId().getUserId());
+            favouriteDTO.setProductId(item.getId().getProductId());
             dtoList.add(favouriteDTO);
         }
         return dtoList;
@@ -56,7 +60,7 @@ public class FavouriteService implements FavouriteServiceImp {
     @Override
     public void deleteFavouriteByUserId(int id) {
         try {
-            favouriteRepository.deleteAllByUserId(id);
+            favouriteRepository.deleteByIdUserId(id);
         }catch(Exception e) {
             throw new RuntimeException("Error deleting favourite with userId" + id, e);
         }
@@ -65,7 +69,7 @@ public class FavouriteService implements FavouriteServiceImp {
     @Override
     public void deleteFavouriteByProductId(int id) {
         try {
-            favouriteRepository.deleteAllByProductId(id);
+            favouriteRepository.deleteByIdProductId(id);
         }catch(Exception e) {
             throw new RuntimeException("Error deleting favourite with userId" + id, e);
         }

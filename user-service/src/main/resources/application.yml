@@ -2,6 +2,11 @@ server:
   port: 9192
 
 spring:
+  web:
+    resource:
+      static-location: classpath:/static/
+  application:
+    name: user-service
   datasource:
     url: jdbc:mysql://localhost:3333/ecommercestore
     username: root
@@ -23,3 +28,10 @@ redis:
 
 token:
   key: fSZcTeAPU7nPu0SmOcKaQMpc4G+5Pb6hRrDDVRnT5IA=
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka
+  instance:
+    prefer-ip-address: true

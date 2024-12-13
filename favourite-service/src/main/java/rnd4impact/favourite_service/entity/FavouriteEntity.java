@@ -9,11 +9,16 @@ import java.time.LocalDateTime;
 @Entity(name = "likes")
 public class FavouriteEntity {
 
-    @Id
+    @EmbeddedId
+    private FavouriteId id;
+
+/*    @Id
+    @JoinColumn(name = "user_id", nullable = false)
     private int userId;
 
     @Id
-    private int productId;
+    @JoinColumn(name = "product_id", nullable = false)
+    private int productId;*/
 
     @Column(name = "like_date")
     private LocalDateTime likeDate;

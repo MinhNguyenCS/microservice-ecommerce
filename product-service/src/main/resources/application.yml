@@ -37,4 +37,16 @@ redis:
   host: localhost
   port: 6378
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka
+  instance:
+    prefer-ip-address: true
 
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui/index.html
+    oauth2-redirect-url: /swagger-ui/oauth2-redirect.html

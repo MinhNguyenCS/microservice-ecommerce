@@ -1,35 +1,26 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:9091/eureka
-  instance:
-    prefer-ip-address: true
+
 spring:
   application:
     name: api-gateway
   cloud:
     gateway:
-      routes:
-        - id: idOrder
-          uri: lb://order-service
-          predicates:
-            - Path=/order/**
-        - id: idUser
-          uri: lb://user-service
-          predicates:
-            - Path=/user/**
-        - id: idProduct
-          uri: lb://product-service
-          predicates:
-            - Path=/product/**
-        - id: idPayment
-          uri: lb://payment-service
-          predicates:
-            - Path=/payment/**
-        - id: idFavourite
-          uri: lb://favourite-service
-          predicates:
-            - Path=/favourite/**
+      mvc:
+        routes:
+          - id: user-service
+            uri: lb://user-service
+            predicates:
+              - Path=/login/signin
 
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 9093

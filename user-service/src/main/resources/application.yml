@@ -1,6 +1,7 @@
 server:
   port: 9192
-
+  servlet:
+    context-path: /user-service/api
 spring:
   web:
     resource:

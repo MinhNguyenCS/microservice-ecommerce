@@ -14,7 +14,4 @@ public class ProductDTO implements Serializable {
     private int priceUnit;
     private Integer quantity;
 
-    private String createdAt;
-    private String updatedAt;
-
 }

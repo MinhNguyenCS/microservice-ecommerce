@@ -9,9 +9,23 @@ spring:
           - id: user-service
             uri: lb://user-service
             predicates:
-              - Path=/login/signin
-
-
+              - Path=/user-service/**
+          - id: order-service
+            uri: lb://order-service
+            predicates:
+              - Path=/order-service/**
+          - id: payment-service
+            uri: lb://payment-service
+            predicates:
+              - Path=/payment-service/**
+          - id: favourite-service
+            uri: lb://favourite-service
+            predicates:
+              - Path=/favourite-service/**
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/product-service/**
 
 
 eureka:

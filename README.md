@@ -23,7 +23,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Maven**: Apache Maven is a software project management and comprehension tool, it can be downloaded from here https://maven.apache.org/download.cgi
 
-1. **Postman**: Execute, test, and interact with APIs in seconds. It can be downloaded from 
+1. **Postman**: Execute, test, and interact with APIs in seconds. It can be downloaded from https://www.postman.com/downloads/
 
 1. **Docker**:  A platform designed to help developers build, share, and run container applications. It can be installed from https://www.docker.com/
 
@@ -56,6 +56,29 @@ Before you begin, ensure you have met the following requirements:
   # Using Maven
   mvn spring-boot:run
 ```
+
+```bash
+---------------< com.mk.app:microservice-ecommerce >-----------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for microservice-ecommerce 0.1.0:
+[INFO] 
+[INFO] microservice-ecommerce ............................. SUCCESS [  0.548 s]
+[INFO] service-registry ................................... SUCCESS [  3.126 s]
+[INFO] cloud-config ....................................... SUCCESS [  1.595 s]
+[INFO] apigateway ......................................... SUCCESS [  1.697 s]
+[INFO] user-service ....................................... SUCCESS [  2.546 s]
+[INFO] product-service .................................... SUCCESS [  2.214 s]
+[INFO] favourite-service .................................. SUCCESS [  2.072 s]
+[INFO] order-service ...................................... SUCCESS [  2.241 s]
+[INFO] payment-service .................................... SUCCESS [  2.006 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.045 s
+[INFO] Finished at: 2024-12-29T19:52:57+01:00
+[INFO] ------------------------------------------------------------------------
+```
+
 
 ## Demo
 ### Access Service Discovery Server (Eureka)

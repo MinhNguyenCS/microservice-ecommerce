@@ -128,12 +128,14 @@ docker run -d --name redis-insight -p 5540:5540 redislabs/redisinsight
 2. Access Redis Insight:
    
 Open your browser and navigate to http://localhost:5540. Use Redis Insight to monitor and interact with the cache.
+
 3. Test Cached Data:
 After successfully caching product data, return to Postman and call the Product Service endpoint:
 ```bash
 http://localhost:9093/product-service/api/product
 ```
 In the response, observe that the data is now loaded from Redis, reducing the retrieval time significantly.
+
 4. Benefits:
 Using Redis as a cache improves performance by reducing database query times, particularly for frequently accessed data like product details.
 

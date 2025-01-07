@@ -27,7 +27,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Docker**:  A platform designed to help developers build, share, and run container applications. It can be installed from https://www.docker.com/
 
-### 1. Clone the project:
+#### 1. Clone the project:
 
 ```bash
 > git clone [https://github.com/MinhNguyenIT/microservice-ecommerce.git]
@@ -39,18 +39,18 @@ Before you begin, ensure you have met the following requirements:
   cd project-name-backend
 ```
 
-#### 2. Build the project:
+#### 3. Build the project:
 
 ```bash
   # Using Maven
   mvn clean install 
 ```
 
-#### 3. Configure the database:
+#### 4. Configure the database:
 
 - Update `application.properties` or `application.yml` with your database connection details.
 
-#### 4. Run the application:
+#### 5. Run the application:
 
 ```bash
   # Using Maven
